@@ -401,8 +401,7 @@ int usb_vhci_to_iso_packets_errno(int32_t status)
 	return usb_vhci_to_errno(status, 0);
 }
 
-int32_t usb_vhci_from_iso_packets_errno(int errno)
-{
-	return usb_vhci_from_errno(errno, 0);
-}
-
+// int32_t usb_vhci_from_iso_packets_errno(int err)
+// {
+// 	return usb_vhci_from_errno(err, 0);
+// }
