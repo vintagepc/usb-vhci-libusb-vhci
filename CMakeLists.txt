@@ -6,6 +6,7 @@ set(LIBUSBVHCI_VERSION 0.8)
 set(LIBRARY_NAME usb-vhci)
 
 set(LIBUSB_VHCI_SOURCES
+	src/libusb_vhci.h
 	src/libusb_vhci.c
 	src/hcd.cpp
 	src/port_stat.cpp
@@ -14,10 +15,7 @@ set(LIBUSB_VHCI_SOURCES
 	src/local_hcd.cpp
 )
 add_library(${LIBRARY_NAME} STATIC ${LIBUSB_VHCI_SOURCES})
+target_include_directories(${LIBRARY_NAME} INTERFACE ${PROJECT_SOURCE_DIR}/src/)
 set_target_properties(${LIBRARY_NAME} PROPERTIES VERSION ${LIBUSBVHCI_VERSION})
 
 target_link_libraries(${LIBRARY_NAME} pthread)
-
-target_include_directories(${LIBRARY_NAME} INTERFACE
-  src/
-  )
